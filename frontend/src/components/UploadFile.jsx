@@ -112,7 +112,7 @@ import React, { useState } from 'react'
 import Navbar from './navbar'
 import Footer from './Footer'
 import axios from 'axios'
-import config from './config';
+
 function UploadFile() {
     const [selectedFile, setSelectedFile] = useState(null);
     const [formData, setFormData] = useState({
@@ -157,7 +157,7 @@ function UploadFile() {
         data.append('category', formData.category);
 
         try {
-            await axios.post(`${config.API_URL}/api/notes/upload`, data, {
+            await axios.post('http://localhost:5000/api/notes/upload', data, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
